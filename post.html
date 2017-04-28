@@ -1,0 +1,66 @@
+<div ng-controller="postCtrl">
+    <header role="banner" aria-labelledby="ibm-pagetitle-h1">
+        <div id="ibm-leadspace-head" class="ibm-alternate ibm-padding-top-r3 ibm-padding-bottom-r3" style="background: url(img/blog-hero.jpg);">
+        </div>
+    </header>
+
+    <!-- Main start -->
+
+    <main role="main" aria-labelledby="ibm-pagetitle-h1">
+        <div id="ibm-pcon">
+            <div id="ibm-content">
+                <div id="ibm-content-body" style="padding-top:0px;">
+                    <div id="ibm-content-main" class="ibm-background-warm-white-30">
+                        <div class="ibm-columns ibm-padding-top-3">
+                            <div class="ibm-col-4-3" ng-repeat="post in postData | filter:{id:id}">
+                                <p class="ibm-h1 ibm-large ibm-light ibm-ind-link">{{post.title}}</p>
+                                <p>Posted on {{post.date}}</p>
+                                <p class="ibm-light ibm-margin-bottom-2">{{post.body}}</p>
+                                <p class="ibm-btn-row ibm-margin-bottom-2">
+                                    <button ng-repeat="keyword in post.keywords" type="button" class="ibm-btn-sec">{{keyword}}</button>
+                                </p>
+                            </div>
+                            <div class="ibm-col-4-1">
+                                <div class="ibm-card ibm-card--noborder ibm-center ibm-padding-top-1 ibm-background-white-core" ng-repeat="post in postData | filter:{id:id}">
+                                    <img class="ibm-downsize ibm-circle" src="img/team.jpg" style="width:200;">
+                                    <div class="ibm-card__heading">
+                                        <p class="ibm-h3" ng-model="author">{{post.author.name}}</p>
+                                        <p class="ibm-small">{{post.author.job}}</p>
+                                    </div>
+                                    <div class="ibm-card__content">
+                                        <p>{{post.author.bio}}</p>
+                                        <p class="ibm-padding-top-1 ibm-button-link"><a class="ibm-btn-pri" href="#replace">More about {{post.author.name}}</a></p>
+                                    </div>
+                                </div>
+                                <p class="ibm-h3 ibm-margin-top-3 ibm-textcolor-blue-50">Related posts</p>
+                                <div class="ibm-card ibm-card--noborder ibm-background-white-core" ng-repeat="post in postData | filter: {id:id}">
+                                    <div class="ibm-card__heading">
+                                        <p class="ibm-h4">{{post.title}}</p>
+                                        <p class="ibm-small">by {{post.author.name}}</p>
+                                        <p class="ibm-ind-link ibm-right"><a class="ibm-forward-link" href="#/posts/{{post.id}}">Read post</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ibm-band ibm-background-blue-50">
+                            <div class="ibm-columns">
+                               <div class="ibm-col-4-2 ibm-vertical-center"><ul role="presentation" class="ibm-pagination ibm-center ibm-pagination--wide">
+                                    <li class="ibm-textcolor-white-core ibm-fleft ibm-icononly">
+                                        <a class="ibm-textcolor-white-core ibm-previous-link" href="#/posts/{{prevPost}}"></a></li></ul></div>
+                                <div class="ibm-col-4-2"><ul role="presentation" class="ibm-pagination ibm-center ibm-pagination--wide">
+                                    <li class="ibm-textcolor-white-core ibm-fright ibm-icononly">
+                                        <a class="ibm-textcolor-white-core ibm-next-link ibm-iconafter ibm-inlinelink" href="#/posts/{{nextPost}}"></a>
+                                    </li>
+                                    </ul></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CONTENT END -->
+
+            </div>
+        </div>
+</main>
+</div>

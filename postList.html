@@ -1,0 +1,48 @@
+<div ng-controller="blogCtrl">
+                   <header role="banner" aria-labelledby="ibm-pagetitle-h1">
+                    <div id="ibm-leadspace-head" class="ibm-alternate ibm-padding-top-r2 ibm-padding-bottom-r2" style="background: url(img/blog-hero.jpg);">
+                        <div class="ibm-columns ibm-alternate-background">
+                           <div class="ibm-col-1-1">
+                                <h1 class="ibm-h1 ibm-center ibm-margin-bottom-2">MyBlog</h1>
+                                <p class="ibm-center">
+                                    <input type="text" ng-model="search" size="80" class="ibm-styled-input" placeholder="Looking for something specific?" id="search">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Main start -->
+
+                <main role="main" aria-labelledby="ibm-pagetitle-h1">
+                    <div id="ibm-pcon">
+                        <div id="ibm-content">
+                            <div id="ibm-content-body" style="padding-top:0px;">
+                                <div id="ibm-content-main" class="ibm-background-warm-white-30">
+
+                                    <div class="ibm-columns ibm-cards ibm-padding-top-r2" data-widget="masonry" data-items=".ibm-col-6-2">
+                                        <div class="ibm-col-6-2 ibm-col-medium-4-2 ibm-margin-bottom-1" ng-repeat="post in blogData | filter : { title:search }">
+                                            <div class="ibm-card__noborder ibm-background-white-core">
+                                                <div class="ibm-card__image">
+                                                    <img ng-src="{{post.img}}" alt="{{post.title}}" width="100%" class="ibm-resize"></div>
+                                                <div class="ibm-card__content">
+                                                    <h3 class="ibm-h3">{{post.title}}</h3>
+                                                    <p class="ibm-small">Posted by {{post.author.name}} on {{post.date}}</p>
+                                                    <p>{{post.lead}}</p>
+                                                    <div class="ibm-card__bottom" style="padding-left:0px;">
+                                                        <p class="ibm-fleft"><a href="#replace" class="ibm-star-full-link ibm-inlinelink ibm-textcolor-yellow-30">{{post.stars}}</a></p>
+                                                        <p class="ibm-fright ibm-inlinelink"><a href="#/posts/{{post.id}}" class="ibm-forward-link  ibm-iconafter ibm-inlinelink">Read more</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- CONTENT END -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                </div>
